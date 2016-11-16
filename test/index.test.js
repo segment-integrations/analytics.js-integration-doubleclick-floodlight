@@ -2,7 +2,6 @@
 
 var Analytics = require('@segment/analytics.js-core').constructor;
 var integration = require('@segment/analytics.js-integration');
-var sandbox = require('@segment/clear-env');
 var tester = require('@segment/analytics.js-integration-tester');
 var Floodlight = require('../lib');
 var sinon = require('sinon');
@@ -56,7 +55,6 @@ describe('DoubleClick Floodlight', function() {
     analytics.restore();
     analytics.reset();
     floodlight.reset();
-    sandbox();
   });
 
   it('should have the correct settings', function() {
