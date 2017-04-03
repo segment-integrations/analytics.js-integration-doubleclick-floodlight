@@ -91,8 +91,7 @@ describe('DoubleClick Floodlight', function() {
           + ';src=' + options.source
           + ';type=' + options.events[1].value.type
           + ';cat=' + options.events[1].value.cat
-          + ';ord=2700503028455676400?"'
-          + ' width="1" height="1" style="display: none;">';
+          + ';ord=2700503028455676400?">';
 
         analytics.track('Goodbye Pablo');
         analytics.called(floodlight.load);
@@ -106,8 +105,7 @@ describe('DoubleClick Floodlight', function() {
           + ';cat=' + options.events[0].value.cat
           + ';ord=2700503028455676400'
           + ';u1=Maeve'
-          + ';u2=4?"'
-          + ' width="1" height="1" style="display: none;">';
+          + ';u2=4?">';
 
         analytics.track('Watched Westworld', {
           favoriteCharacter: 'Maeve',
