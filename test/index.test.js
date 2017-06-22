@@ -188,6 +188,34 @@ describe('DoubleClick Floodlight', function() {
         analytics.loaded(iframe);
       });
 
+      it('should fallback to properties.quantity for sales tag if no products', function() {
+        var properties = {
+          checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+          order_id: '50314b8e9bcf000000000000',
+          affiliation: 'Google Store',
+          total: 30,
+          revenue: 25,
+          shipping: 3,
+          tax: 2,
+          discount: 2.5,
+          coupon: 'hasbros',
+          currency: 'USD',
+          quantity: 3
+        };
+        var iframe = '<iframe src="https://' + options.source + '.fls.doubleclick.net/activityi'
+          + ';src=' + options.source
+          + ';type=' + options.events[1].value.type
+          + ';cat=' + options.events[1].value.cat
+          + ';qty=' + 3
+          + ';cost=' + properties.revenue
+          + ';dc_lat=;dc_rdid=;tag_for_child_directed_treatment='
+          + ';ord=50314b8e9bcf000000000000?">';
+
+        analytics.track('Order Completed', properties);
+        analytics.called(floodlight.load);
+        analytics.loaded(iframe);
+      });
+
       describe('page', function() {
         beforeEach(function() {
           analytics.spy(floodlight, 'load');
