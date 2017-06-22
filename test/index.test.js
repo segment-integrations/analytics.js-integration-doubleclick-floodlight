@@ -46,7 +46,7 @@ describe('DoubleClick Floodlight', function() {
       {
         key: 'Viewed Confirmation Page',
         value: {
-          event:'Viewed Confirmation Page', 
+          event:'Viewed Confirmation Page',
           cat: 'activityTag',
           type: 'groupTag',
           customVariable: [],
@@ -57,7 +57,7 @@ describe('DoubleClick Floodlight', function() {
       {
         key: 'Order Completed',
         value: {
-          event:'Order Completed', 
+          event:'Order Completed',
           cat: 'activityTag',
           type: 'groupTag',
           customVariable: [],
@@ -179,7 +179,7 @@ describe('DoubleClick Floodlight', function() {
           + ';type=' + options.events[1].value.type
           + ';cat=' + options.events[1].value.cat
           + ';qty=' + 3
-          + ';cost=' + properties.revenue 
+          + ';cost=' + properties.revenue
           + ';dc_lat=;dc_rdid=;tag_for_child_directed_treatment='
           + ';ord=50314b8e9bcf000000000000?">';
 
@@ -187,7 +187,7 @@ describe('DoubleClick Floodlight', function() {
         analytics.called(floodlight.load);
         analytics.loaded(iframe);
       });
-      
+
       describe('page', function() {
         beforeEach(function() {
           analytics.spy(floodlight, 'load');
@@ -210,7 +210,7 @@ describe('DoubleClick Floodlight', function() {
             + ';cat=' + options.events[1].value.cat
             + ';dc_lat=;dc_rdid=;tag_for_child_directed_treatment='
             + ';ord=2700503028455676400?">';
-            
+
           analytics.page('Confirmation');
           analytics.called(floodlight.load);
           analytics.loaded(iframe);
