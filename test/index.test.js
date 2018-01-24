@@ -11,8 +11,8 @@ describe('DoubleClick Floodlight', function() {
   var analytics;
   var options = {
     source: '654757884637545',
-    cat: 'sourceLevelTagCat',
-    type: 'sourceLevelTagType',
+    activityTag: 'sourceLevelTagCat',
+    groupTag: 'sourceLevelTagType',
     events: [
       {
         key: 'Watched Westworld',
@@ -236,8 +236,8 @@ describe('DoubleClick Floodlight', function() {
       it('should fallback on top level tag settings', function() {
         var iframe = '<iframe src="https://' + options.source + '.fls.doubleclick.net/activityi'
           + ';src=' + options.source
-          + ';type=' + options.type
-          + ';cat=' + options.cat
+          + ';type=' + options.groupTag
+          + ';cat=' + options.activityTag
           + ';dc_lat=;dc_rdid=;tag_for_child_directed_treatment='
           + ';ord=2700503028455676400?">';
           
@@ -320,7 +320,7 @@ describe('DoubleClick Floodlight', function() {
 
         it('should noop if cat is missing', function() {
           delete floodlight.options.events[0].value.cat;
-          delete floodlight.options.cat;
+          delete floodlight.options.activityTag;
           analytics.assert(floodlight.options.source);
           analytics.assert(floodlight.options.events[0].value.type);
           analytics.track('Watched Westworld');
@@ -329,7 +329,7 @@ describe('DoubleClick Floodlight', function() {
 
         it('should noop if type is missing', function() {
           delete floodlight.options.events[0].value.type;
-          delete floodlight.options.type;
+          delete floodlight.options.groupTag;
           analytics.assert(floodlight.options.events[0].value.cat);
           analytics.assert(floodlight.options.source);
           analytics.track('Watched Westworld');
