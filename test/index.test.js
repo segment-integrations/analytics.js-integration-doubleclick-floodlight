@@ -233,7 +233,7 @@ describe('DoubleClick Floodlight', function() {
         analytics.loaded(iframe);
       });
 
-      it('should fallback on top level tag settings', function () {
+      it('should fallback on top level tag settings', function() {
         var iframe = '<iframe src="https://' + options.source + '.fls.doubleclick.net/activityi'
           + ';src=' + options.source
           + ';type=' + options.type
